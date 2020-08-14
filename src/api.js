@@ -21,7 +21,7 @@ export const moviesApi = {
           api_key: "123d2102ba3f07ba30fffeceeef1616c",
           query: encodeURIComponent(term)
         }
-      })
+      })  
   };
  
 export const tvApi = {

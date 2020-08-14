@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "Components/Loader";
 import Helmet from "react-helmet";
+import { Route, Link } from 'react-router-dom';
 
 const Container = styled.div`
   height: calc(calc(100vh - 50px));
@@ -61,15 +62,31 @@ const Divider = styled.span`
   margin: 0 10px;
 `;
 
+const ImgContainer = styled.div`
+  font-size: 12px;
+  opacity: 0.7;
+  line-height: 1.5;
+  margin-top:10px;
+  display:flex;
+  &:hover{cursor:Pointer;}
+  width:80px;
+`
+
+const Img = styled.img`
+  width:20px;
+  height:20px;
+  margin-right:6px;
+`
 const Overview = styled.p`
   font-size: 12px;
   opacity: 0.7;
   line-height: 1.5;
   width: 50%;
 `;
+ 
+let x = null;
 
-
-const DetailPresenter = ({ result, loading, error }) =>
+const DetailPresenter = ({ result, loading, error,results,imdb_id }) =>
 loading ? (    
     <>
     <Helmet>
@@ -123,6 +140,12 @@ loading ? (
             </Item>
           </ItemContainer>
           <Overview>{result.overview}</Overview>
+          
+          <ImgContainer onClick= {() => {window.open(`http://www.youtube.com/watch?v=${results}`)}}>
+            <Img src= {require('./1.png')} alt="xx"/>
+            <span>youtube</span>
+          </ImgContainer>
+              
         </Data>
       </Content>
     </Container>
